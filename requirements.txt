@@ -14,5 +14,6 @@ tqdm>=4.65.0
 python-dotenv>=1.0.0
 beautifulsoup4
 requests
+lxml
 
 #python -m spacy download en_core_web_sm
