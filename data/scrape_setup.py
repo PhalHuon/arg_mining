@@ -51,6 +51,10 @@ def scrape_post_comments(post_url):
         return []
 
 
+#need to:
+#scrape more data, means multiple pages
+#layout URL, title, author, comments
+
 
 posts = scrape_subreddit_posts("changemyview", "hot", 5 )
 for j in posts:
