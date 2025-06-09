@@ -59,8 +59,11 @@ def reddit_with_comments(subreddit, sort = "hot", limit = 5):
             file.write("#" * 20)
             file.write(f"\n")
             file.write(f"URL: {post['url']}")
+            file.write(f"\n")
             file.write(f"Reddit URL: {post['permalink']}")
+            file.write(f"\n")
             file.write(f"Post {post_num}: {post['title']}")
+            file.write(f"\n")
             file.write(f"Author: {post['author']}")
 
             if post['selftext']:
@@ -76,7 +79,6 @@ def reddit_with_comments(subreddit, sort = "hot", limit = 5):
                     file.write(f"{comment_num} : {comment['author']}")
                     file.write(f"Comment: {comment['body']}")
                     file.write(f"\n")
-                    file.write("-" * 20)
             else:
                 file.write("No comments found")
 
