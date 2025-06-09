@@ -21,7 +21,8 @@ def scrape_subreddit_posts(subreddit, sort = "hot", limit = 5):
                 'author':post_data['author'],
                 'url':post_data['url'],
                 'selftext':post_data.get('selftext', ''),
-                'subreddit':post_data['subreddit']
+                'subreddit':post_data['subreddit'],
+                'permalink': f"https://reddit.com{post_data['permalink']}" #comment URL in reddit
             })
         return posts
     
@@ -47,20 +48,51 @@ def scrape_post_comments(post_url):
                 })
 
         return comments
-    else:
-        return []
+    
+def reddit_with_comments(subreddit, sort = "hot", limit = 5):
+    print(f"Scraping r/{subreddit}")
+    posts = scrape_subreddit_posts(subreddit, sort, limit)
 
+    with open("arg_mining/data/scrape_result.txt", "w", encoding = "utf-8") as file:
+        for post_num, post in enumerate(posts, 1):
+            file.write(f"\n")
+            file.write("#" * 20)
+            file.write(f"\n")
+            file.write(f"URL: {post['url']}")
+            file.write(f"Reddit URL: {post['permalink']}")
+            file.write(f"Post {post_num}: {post['title']}")
+            file.write(f"Author: {post['author']}")
+
+            if post['selftext']:
+                file.write(f"Post Text: {post['selftext'][:5000]}")
+
+            #get comments
+            comments = scrape_post_comments(post['permalink'])
+            if comments:
+                for comment_num, comment in enumerate(comments, 1):
+                    file.write(f"\n")
+                    file.write("-" * 20)
+                    file.write(f"\n")
+                    file.write(f"{comment_num} : {comment['author']}")
+                    file.write(f"Comment: {comment['body']}")
+                    file.write(f"\n")
+                    file.write("-" * 20)
+            else:
+                file.write("No comments found")
+
+            time.sleep(100)
+
+reddit_with_comments('changemyview', 'hot', 15)
 
 #need to:
 #scrape more data, means multiple pages
 #layout URL, title, author, comments
 
+#problem:
+#scraper crashes when scrape too much data. 
 
-posts = scrape_subreddit_posts("changemyview", "hot", 5 )
-for j in posts:
-    print("-" * 50)
-    print(f"URL: {j['url']}")
-    print(f"Title: {j['title']}")
-    print("-" * 50)
-    
+#solution:
+#need to finish one post, then pause, then scrape again
+
+
     
