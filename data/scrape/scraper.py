@@ -53,28 +53,29 @@ def reddit_with_comments(subreddit, sort = "hot", limit = 5):
     print(f"Scraping r/{subreddit}")
     posts = scrape_subreddit_posts(subreddit, sort, limit)
 
-    with open("arg_mining/data/scrape_result.txt", "w", encoding = "utf-8") as file:
+    with open("arg_mining/data/scrape/scrape_result.txt", "w", encoding = "utf-8") as file:
         for post_num, post in enumerate(posts, 1):
-            file.write(f"\n")
-            file.write("#" * 20)
-            file.write(f"\n")
-            file.write(f"URL: {post['url']}")
-            file.write(f"\n")
-            file.write(f"Reddit URL: {post['permalink']}")
+            # file.write(f"\n")
+            # file.write("#" * 20)
+            # file.write(f"\n")
+            # file.write(f"URL: {post['url']}")
+            # file.write(f"\n")
+            # file.write(f"Reddit URL: {post['permalink']}")
+            file.write("=" * 20)
             file.write(f"\n")
             file.write(f"Post {post_num}: {post['title']}")
             file.write(f"\n")
             file.write(f"Author: {post['author']}")
 
             if post['selftext']:
-                file.write(f"Post Text: {post['selftext'][:5000]}")
+                file.write(f"Post Text: {post['selftext'][:10000]}")
 
             #get comments
             comments = scrape_post_comments(post['permalink'])
             if comments:
                 for comment_num, comment in enumerate(comments, 1):
                     file.write(f"\n")
-                    file.write("-" * 20)
+                    file.write("+" * 20)
                     file.write(f"\n")
                     file.write(f"{comment_num} : {comment['author']}")
                     file.write(f"Comment: {comment['body']}")
@@ -82,19 +83,13 @@ def reddit_with_comments(subreddit, sort = "hot", limit = 5):
             else:
                 file.write("No comments found")
 
-            time.sleep(100)
+            time.sleep(30)
 
-reddit_with_comments('changemyview', 'hot', 15)
-
-#need to:
-#scrape more data, means multiple pages
-#layout URL, title, author, comments
-
-#problem:
-#scraper crashes when scrape too much data. 
-
-#solution:
-#need to finish one post, then pause, then scrape again
+reddit_with_comments('changemyview', 'hot', 100)
+time.sleep(60)
+reddit_with_comments('politicaldiscussion', 'hot', 100)
+time.sleep(60)
+reddit_with_comments('unpopularopinion', 'hot', 100)
 
 
     

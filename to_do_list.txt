@@ -1,0 +1,20 @@
+Data collection:
+run scraper.py
+write a script that cleans texts.txt 
+    only get the words
+    take out all url, colons, semi colons, "=", "+"
+
+
+NLTK
+tokenization
+frequency distribution
+extracting concordance - collection of word locations 
+    how many times a word appear
+    where each occurrence appear
+    what words surround that word
+
+Sentiment analyzer
+use nltk pretrained - SentimentIntensityAnalyzer
+polarity_scores()
+customize nltk sentiment analysis
+
