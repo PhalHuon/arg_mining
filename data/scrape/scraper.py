@@ -53,7 +53,7 @@ def reddit_with_comments(subreddit, sort = "hot", limit = 5):
     print(f"Scraping r/{subreddit}")
     posts = scrape_subreddit_posts(subreddit, sort, limit)
 
-    with open("arg_mining/data/scrape/scrape_result.txt", "w", encoding = "utf-8") as file:
+    with open("arg_mining/data/scrape/scrape_result.txt", "a", encoding = "utf-8") as file:
         for post_num, post in enumerate(posts, 1):
             # file.write(f"\n")
             # file.write("#" * 20)
@@ -78,18 +78,31 @@ def reddit_with_comments(subreddit, sort = "hot", limit = 5):
                     file.write("+" * 20)
                     file.write(f"\n")
                     file.write(f"{comment_num} : {comment['author']}")
+                    file.write(f"\n")
                     file.write(f"Comment: {comment['body']}")
                     file.write(f"\n")
             else:
                 file.write("No comments found")
 
-            time.sleep(30)
+            time.sleep(15)
 
-reddit_with_comments('changemyview', 'hot', 100)
+# reddit_with_comments('changemyview', 'hot', 100)
+# time.sleep(60)
+# reddit_with_comments('politicaldiscussion', 'controversial', 100)
+# time.sleep(60)
+# reddit_with_comments('unpopularopinion', 'controversial', 100)
+# time.sleep(60)
+# reddit_with_comments('politicaldiscussion', 'hot',100)
 time.sleep(60)
-reddit_with_comments('politicaldiscussion', 'hot', 100)
+reddit_with_comments('askanamerican', 'hot',100)
 time.sleep(60)
-reddit_with_comments('unpopularopinion', 'hot', 100)
+reddit_with_comments('asksciencefiction', 'hot', 100)
+time.sleep(60)
+reddit_with_comments('worldnews', 'hot',100)
+time.sleep(60)
+reddit_with_comments('Showerthoughts', 'hot',100)
+time.sleep(60)
+
 
 
     
