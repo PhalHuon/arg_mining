@@ -1,0 +1,102 @@
+1. Data collection and prep 
+    gather dataset 
+    data explore
+        understand
+            size
+            distribution of sentiment classes 
+            text length patterns 
+            obvious quality issues or biases 
+2. Data Preprocessing 
+    text cleaning 
+        remove:
+            URLs 
+            email addresses 
+            special char 
+            extra whitespace 
+            HTML tags 
+    case normalization
+        convert all to lower case 
+    tokenization
+        split text into individual words or tokens
+        handle punctuation 
+    stop word removal 
+        remove common words (the, and, is, etc..)
+    handle negations
+        negation words (not, never, don't) can flip sentiment meaning 
+    lemmatization
+        reduce words to root forms ("running" - "run")
+3. Feature Engineering
+    text representation method 
+        bag of words = word frequency 
+        TF-IDF = weighted word importance 
+        N-grams = capture word sequences 
+        word embeddings = word2vec, GloVe for sematic relationships 
+    feature selection
+        chi-square tests
+        mutual information 
+        frequency thresholds to reduce dimensionality
+    handle class imbalance 
+        if sentiment classes are unequally distributed
+            oversampling
+            undersampling
+            weighted loss functions
+4. Data Splitting 
+    train 80%
+    test 20%
+    cross validation setup
+        k-fold c-v 
+5. Model Selection and Training 
+    ML
+        naive bayes 
+        SVM 
+        logistic regression 
+        random forest 
+    DL 
+        LSTM
+        GRU 
+        CNN 
+        transformer-based models 
+    pre-trained 
+        BERT 
+        RoBERTa 
+6. Tuning 
+    grid search 
+    random search 
+    train multiple models and compare performance
+7. Evaluation
+    metrics 
+        accuracy 
+        precision 
+        recall 
+        f1-score 
+        confusion matrices 
+        if dataset imbalanced
+            f1-score 
+            area under ROC curve 
+    validate on test set 
+    error analysis 
+8. Optimization 
+    ensemble methods 
+        voting 
+        averaging 
+        stacking
+    address overfitting 
+        regularization 
+        dropout 
+        early stopping 
+9. Deployment 
+    save
+        trained model 
+        preprocessing components 
+    pipeline 
+        take raw txt input and output sentiment predictions 
+    performance monitoring 
+        track model performance overtime 
+10. Testing and Validation 
+    real-world testing 
+    bias assessment 
+    informal language test 
+    typos, punctuation test 
+11. Feedback loop
+    collect new labeled data for retraining
+    
