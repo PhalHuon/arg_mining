@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sentiment Analysis</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="input-box">
+      <h2>Enter Text</h2>
+      <textarea id="inputText" placeholder="Type your Reddit post/comment here..."></textarea>
+      <button onclick="analyzeSentiment()">Analyze</button>
+    </div>
+
+    <div class="output-box">
+      <h2>Sentiment Result</h2>
+      <div id="outputResult">Sentiment will appear here.</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
