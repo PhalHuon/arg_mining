@@ -19,6 +19,7 @@ void linearRegression(const vector<double>& x, const vector<double>& y, double& 
         sumY += y[i];
         sumXY += x[i] * y[i];
         sumX2 += x[i] * x[i];
+        
     }
 
     double denominator = n * sumX2 - sumX * sumX;
