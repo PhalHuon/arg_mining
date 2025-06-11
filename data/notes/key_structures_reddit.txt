@@ -1,0 +1,20 @@
+JSON API Structure:
+'t1' = Comment
+'t2' = Account/User
+'t3' = Link/Post
+'t4' = Message
+'t5' = Subreddit
+'t6' = Award
+
+JSON POST data structure and fields:
+'title'
+'author'
+'url'
+'selftext'
+'subreddit'
+'score'
+'num_comments'
+'created_utc'
+'permalink'
+'is_video'
+'thumbnail'
