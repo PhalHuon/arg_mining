@@ -45,68 +45,68 @@ int main() {
     return 0;
 }
 
-// linear_regression.cpp
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <sstream>
+// // linear_regression.cpp
+// #include <iostream>
+// #include <fstream>
+// #include <vector>
+// #include <sstream>
 
-using namespace std;
+// using namespace std;
 
-// Read CSV into X and y
-void load_data(const string& filename, vector<double>& X, vector<double>& y) {
-    ifstream file(filename);
-    string line;
+// // Read CSV into X and y
+// void load_data(const string& filename, vector<double>& X, vector<double>& y) {
+//     ifstream file(filename);
+//     string line;
 
-    getline(file, line); // skip header
-    while (getline(file, line)) {
-        stringstream ss(line);
-        string value;
-        vector<double> row;
+//     getline(file, line); // skip header
+//     while (getline(file, line)) {
+//         stringstream ss(line);
+//         string value;
+//         vector<double> row;
 
-        while (getline(ss, value, ',')) {
-            row.push_back(stod(value));
-        }
+//         while (getline(ss, value, ',')) {
+//             row.push_back(stod(value));
+//         }
 
-        if (row.size() == 2) {
-            X.push_back(row[0]);
-            y.push_back(row[1]);
-        }
-    }
-}
+//         if (row.size() == 2) {
+//             X.push_back(row[0]);
+//             y.push_back(row[1]);
+//         }
+//     }
+// }
 
-void train_linear_regression(const vector<double>& X, const vector<double>& y, double& weight, double& bias, double lr = 0.01, int epochs = 1000) {
-    int n = X.size();
-    weight = 0.0;
-    bias = 0.0;
+// void train_linear_regression(const vector<double>& X, const vector<double>& y, double& weight, double& bias, double lr = 0.01, int epochs = 1000) {
+//     int n = X.size();
+//     weight = 0.0;
+//     bias = 0.0;
 
-    for (int i = 0; i < epochs; ++i) {
-        double y_pred, dw = 0.0, db = 0.0;
+//     for (int i = 0; i < epochs; ++i) {
+//         double y_pred, dw = 0.0, db = 0.0;
 
-        for (int j = 0; j < n; ++j) {
-            y_pred = weight * X[j] + bias;
-            dw += (y_pred - y[j]) * X[j];
-            db += (y_pred - y[j]);
-        }
+//         for (int j = 0; j < n; ++j) {
+//             y_pred = weight * X[j] + bias;
+//             dw += (y_pred - y[j]) * X[j];
+//             db += (y_pred - y[j]);
+//         }
 
-        dw /= n;
-        db /= n;
+//         dw /= n;
+//         db /= n;
 
-        weight -= lr * dw;
-        bias -= lr * db;
-    }
-}
+//         weight -= lr * dw;
+//         bias -= lr * db;
+//     }
+// }
 
-int main() {
-    vector<double> X, y;
-    load_data("data.csv", X, y);
+// int main() {
+//     vector<double> X, y;
+//     load_data("data.csv", X, y);
 
-    double w, b;
-    train_linear_regression(X, y, w, b);
+//     double w, b;
+//     train_linear_regression(X, y, w, b);
 
-    cout << "Trained weight: " << w << endl;
-    cout << "Trained bias: " << b << endl;
+//     cout << "Trained weight: " << w << endl;
+//     cout << "Trained bias: " << b << endl;
 
-    return 0;
-}
+//     return 0;
+// }
 
