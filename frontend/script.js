@@ -1,4 +1,5 @@
-function analyzeSentiment() {
+
+/*function analyzeSentiment() {
   const input = document.getElementById("inputText").value;
 
   // Placeholder logic for sentiment analysis
