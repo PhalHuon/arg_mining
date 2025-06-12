@@ -1,40 +1,57 @@
-Data collection:
-run scraper.py
+===========MACHINE LEARNING============
+    Data collection:
+    run scraper.py
 
-Preprocess data
-    only get the words
-    remove punctuations, stopwords
-    tokenize, lemmatize
-    NLTK
-    visualize
-        frequency distribution
-        extracting concordance - collection of word locations 
-            how many times a word appear
-            where each occurrence appear
-            what words surround that word
+    Preprocess data
+        only get the words
+        remove punctuations, stopwords
+        tokenize, lemmatize
+        NLTK
+        visualize
+            frequency distribution
+            extracting concordance - collection of word locations 
+                how many times a word appear
+                where each occurrence appear
+                what words surround that word
 
-Sentiment analyzer
-    binary sentiment
-        positive vs negative
-        positive, neutral, negative
-    fine-grained emotion analysis(need more data)
-        joy, anger, fear, etc 
-        
-use nltk pretrained - SentimentIntensityAnalyzer
-polarity_scores()
-customize nltk sentiment analysis
-machine learning
-    simple
-        logistic regression
-        naive bayes 
-        svm 
-    intermediate
-        feedforward NN 
-        LSTM 
-        GRU 
-    advanced
-        bert 
-        DistilBERT
-        roBerta
-        finetuned models 
+    Sentiment analyzer
+        binary sentiment
+            positive vs negative
+            positive, neutral, negative
+        fine-grained emotion analysis(need more data)
+            joy, anger, fear, etc 
+            
+    use nltk pretrained - SentimentIntensityAnalyzer
+    polarity_scores()
+    customize nltk sentiment analysis
+    machine learning
+        simple
+            logistic regression
+            naive bayes 
+            svm 
+        intermediate
+            feedforward NN 
+            LSTM 
+            GRU 
+        advanced
+            bert 
+            DistilBERT
+            roBerta
+            finetuned models 
+    machine learning v2
+        use manually coded c++ algorithms
+        compare with prebuilt algorithms
+
+
+===========FRONT END============
+html
+css
+javascript
+    connect trained model to the front END
+
+===========BACK END============
+API implementation
+
+
+    
 
