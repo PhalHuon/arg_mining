@@ -8,7 +8,7 @@ data/raw/*
 wandb/
 .ipynb_checkpoints/
 *.exe
-.venv/
+*.venv
 *.env
 *.ipynb_checkpoints
 *.dSYM/

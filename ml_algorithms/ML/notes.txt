@@ -1,11 +1,4 @@
-1. Data collection and prep 
-    gather dataset 
-    data explore
-        understand
-            size
-            distribution of sentiment classes 
-            text length patterns 
-            obvious quality issues or biases 
+1. Data collection
 2. Data Preprocessing 
     text cleaning 
         remove:
@@ -23,6 +16,13 @@
         remove common words (the, and, is, etc..)
     handle negations
         negation words (not, never, don't) can flip sentiment meaning 
+            detecting negative words:
+                (i) Full negatives: no, not, none, never, nothing, nobody, nowhere, neither, nor
+                (ii) Absolute negatives: not at all, by no means, in no way, nothing short of, etc.
+                (iii) Quasi negatives: hardly, scarcely, seldom, barely, few, little
+                (iv) Partial negatives: not every, not all, not much, not many, not always, etc.
+                (v) Words with negative implication: fail, without, beyond, until, unless, lest, ignorant, refuse, neglect, absence,
+                instead of, etc.
     lemmatization
         reduce words to root forms ("running" - "run")
 3. Feature Engineering
