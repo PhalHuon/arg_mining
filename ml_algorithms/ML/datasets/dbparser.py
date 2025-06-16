@@ -2,6 +2,7 @@ import re
 import nltk
 import random
 nltk.download('punkt_tab')
+nltk.download('punkt')
 
 
 def clean_text(data):
@@ -12,34 +13,36 @@ def clean_text(data):
     return data
 
 def text_to_conll(text):
-    cleaned_text = clean_text(text)
-    sentences = nltk.sent_tokenize(cleaned_text)
+    lines = text.strip().split('\n')
     conll_sentences = []
-    for i in sentences:
-        tokens = nltk.word_tokenize(i)
+    for i in lines:
+        i = i.strip()
+        if not i:
+            continue
+        cleaned_line = clean_text(i)
+        cleaned_line = re.sub(r'[.!?]', '', cleaned_line)
+        tokens = nltk.word_tokenize(cleaned_line)
         if tokens:
             conll_sent = "\n".join(tokens)
             conll_sentences.append(conll_sent)
     return conll_sentences
 
-def split_text(sentences, train_ratio = 0.8, shuffle=False):
-    if shuffle:
-        random.shuffle(sentences)
-
-    #fix this: nothing was split and went to train.conll
-    split_index = int(len(sentences) * train_ratio)
-    train = sentences[:split_index]
-    test = sentences[split_index:]
-    return train, test
-
-
-with open("arg_mining/ml_algorithms/ML/datasets/full_original_text.txt", "r", encoding="utf-8") as f:
+with open('arg_mining/ml_algorithms/ML/datasets/full_original_text.txt', 'r', encoding='utf-8') as f:
     raw_text = f.read()
 
 conll_sentences = text_to_conll(raw_text)
-train, test = split_text(conll_sentences, train_ratio = 0.8, shuffle = True)
+random.shuffle(conll_sentences)
 
-with open("arg_mining/ml_algorithms/ML/datasets/train.conll", 'w', encoding = "utf-8") as f:
+train_size = int(len(conll_sentences) * 0.8)
+test_size = len(conll_sentences) - train_size
+train = conll_sentences[:train_size]
+test = conll_sentences[train_size:]
+
+with open("arg_mining/ml_algorithms/ML/datasets/train.conll", 'w', encoding="utf-8") as f:
     f.write("\n\n".join(train))
-with open("arg_mining/ml_algorithms/ML/datasets/test.conll", 'w', encoding = "utf-8") as f:
+
+with open("arg_mining/ml_algorithms/ML/datasets/test.conll", 'w', encoding="utf-8") as f:
     f.write("\n\n".join(test))
+
+
+
