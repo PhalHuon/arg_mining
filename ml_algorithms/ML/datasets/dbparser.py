@@ -51,16 +51,22 @@ conll_sentences = text_to_conll(raw_text, add_labels=True)
 random.shuffle(conll_sentences)
 train_size = int(len(conll_sentences) * 0.8)
 test_size = len(conll_sentences) - train_size
+validation_size = len(conll_sentences) - test_size - train_size
 
 train = conll_sentences[:train_size]
-test = conll_sentences[train_size:]
+test = conll_sentences[train_size: train_size + test_size]
+validation = conll_sentences[:train_size + test_size]
 
 with open("arg_mining/ml_algorithms/ML/datasets/train.conll", 'w', encoding="utf-8") as f:
     f.write("\n\n".join(train))
+
+with open("arg_mining/ml_algorithms/ML/datasets/validation.conll", 'w', encoding="utf-8") as f:
+    f.write("\n\n".join(validation))
 
 with open("arg_mining/ml_algorithms/ML/datasets/test.conll", 'w', encoding="utf-8") as f:
     f.write("\n\n".join(test))
 
 print(f"Train sentences: {len(train)}")
 print(f"Test sentences: {len(test)}")
+print(f"Validation sentences: {len(validation)}")
 
