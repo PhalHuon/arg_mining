@@ -1,5 +1,7 @@
-torch==2.1.2
+torch==2.6.0
 torchtext==0.16.2
+torchvision==0.21.0
+torchaudio==2.6.0
 transformers==4.36.2
 datasets==2.14.6
 pandas==2.1.4
