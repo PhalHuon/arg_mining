@@ -14,6 +14,10 @@ This web application performs sentiment prediction on input texts. It classifies
 ## Note
 - This project is open-source and free to use.
 
+## Thanks to my contributors
+- [@LinPaingTCS](https://github.com/LinPaingTCS)  
+- [@anthinhN](https://github.com/anthinhN)
+
 
 
 
