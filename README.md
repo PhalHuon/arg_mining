@@ -1,7 +1,8 @@
 # Business Sentiment Analysis Web Application
 
-## Requirements
-- Python 3.11 or below
+
+## Run the website
+[Click here to view the site](https://phalhuon.github.io/arg_mining/)
 
 ## Overview
 This web application performs sentiment prediction on input texts. It classifies the sentiment into **three classes** (e.g., Positive, Neutral, Negative) or based on **emotion sentiment** categories.
